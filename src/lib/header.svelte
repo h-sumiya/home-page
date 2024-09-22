@@ -40,11 +40,11 @@
     </button>
 
     <ul class="hidden md:flex space-x-6">
-      {#each ["Home", "About", "Projects", "Contact"] as item, i}
+      {#each ["About", "Projects", "Contact"] as item, i}
         <li
           in:fly={{ y: -20, delay: 100 * i, duration: 500, easing: elasticOut }}
         >
-          <a href="#{item.toLowerCase()}" class="nav-item">
+          <a href="/{item.toLowerCase()}" class="nav-item">
             <span class="relative z-10">{item}</span>
           </a>
         </li>
@@ -57,7 +57,7 @@
         transition:slide={{ duration: 300 }}
       >
         <ul class="py-2">
-          {#each ["Home", "About", "Projects", "Contact"] as item, i}
+          {#each ["About", "Projects", "Contact"] as item, i}
             <li
               in:fly={{
                 x: -50,
@@ -68,7 +68,7 @@
               out:fly={{ x: 50, delay: 50 * i, duration: 300 }}
             >
               <a
-                href="#{item.toLowerCase()}"
+                href="/{item.toLowerCase()}"
                 class="block py-2 px-4 hover:bg-gray-700 transition-all duration-300 nav-item-mobile"
                 on:click={toggleMenu}
               >
