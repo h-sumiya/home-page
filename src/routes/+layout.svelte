@@ -1,53 +1,17 @@
 <script>
-	import Header from './Header.svelte';
-	import '../app.css';
+  import Footer from "$lib/footer.svelte";
+  import Header from "$lib/header.svelte";
+  import { fade } from "svelte/transition";
+  import "../app.css";
 </script>
 
-<div class="app">
-	<Header />
-
-	<main>
-		<slot />
-	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+<div class="flex flex-col min-h-screen bg-gray-900 text-gray-100">
+  <Header />
+  <main
+    class="flex-grow container mx-auto px-4 py-8"
+    in:fade={{ duration: 300, delay: 300 }}
+  >
+    <slot />
+  </main>
+  <Footer />
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
